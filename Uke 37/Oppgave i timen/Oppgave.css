@@ -1,6 +1,8 @@
   head{
   background-color: blue;
-
+*{
+  box-sizing: border-box;
+}
 }
   header{
     display: grid;

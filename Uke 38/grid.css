@@ -1,0 +1,24 @@
+body{
+  font-family: "Comic Sans MS", sans-serif;
+}
+header{
+  text-align: center;
+
+}
+main>p{
+  background-color: #0299F0;
+  text-align: center;
+  padding: 70px;
+
+}
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 50px;
+  grid-row-gap: 40px;
+  padding-right: 150px;
+  padding-left: 150px;
+}
+footer{
+  text-align: center;
+}

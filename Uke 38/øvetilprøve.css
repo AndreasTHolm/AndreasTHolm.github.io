@@ -1,0 +1,23 @@
+body{
+  background-color: #9FB2BD;
+  font-family: "Arial";
+
+
+}
+h1{
+
+}
+head{
+
+
+}
+header{
+  display: grid;
+  text-align: center;
+  grid-template-columns: 1fr 1fr 1fr;
+
+
+}
+main{
+ text-align: center;
+}
