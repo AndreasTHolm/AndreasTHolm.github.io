@@ -1,0 +1,29 @@
+body{
+  background-color: lightblue;
+  margin-left: 200px
+}
+
+img{
+  width: 300px
+}
+
+h1{
+  font-style: italic;
+}
+
+/*Her har jeg prøvd å lage en lik tabell som i oppgaven, men det går ikke.*/
+table{
+  text-align: left;
+  border-collapse: collapse;
+
+}
+th{
+  border-bottom: black;
+}
+td{
+  background-color: papayawhip;
+  padding: 2px 14px;
+  border
+
+
+}

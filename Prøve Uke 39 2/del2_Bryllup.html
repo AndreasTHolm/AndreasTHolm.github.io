@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bryllup</title>
+        <link rel="stylesheet" target=text/css href="./del2_css.css">
+  </head>
+  <body>
+    <header>
+      <h1>Bryllup</h1>
+    </header>
+
+    <nav>
+      <!--Her skulle jeg egentlig ha laget en navigasjonsbar i stede for en liste, men jeg fikk ikke med meg eksempelet du la i GitHub-->
+      <ul>
+        <li> <a href="./del2_Hovedsiden.html">Hovedsiden</a> </li>
+        <li> <a href="./del2_Barnebursdag.html">Bryllup</a> </li>
+        <li> <a href="./del2_Klassefest.html">Klassefest</a> </li>
+      </ul>
+    </nav>
+
+<main>
+  <img src="./bilder/bryllup.jpg" alt="Bryllup">
+
+  <form action="./del2_sendinn.html">
+<input type="text" name="Navn" required placeholder="Hva heter du?"><br>
+<label>Kommer du med eller uten følge?</label><br>
+<input type="radio" name="Med"><span>Med følge</span>
+<input type="radio" name="Uten"><span>Uten følge</span>
+<br>
+<select name="velgMat" required>
+  <option value="Taco">Taco</option>
+  <option value="Fisk">Fisk</option>
+  <option value="Pizza">Pizza</option>
+
+</select>
+        <input type="submit" name="sendInn" value="Send inn">
+
+  </form>
+
+</main>
+
+  </body>
+</html>
