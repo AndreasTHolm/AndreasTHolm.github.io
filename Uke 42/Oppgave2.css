@@ -1,0 +1,56 @@
+body{
+  background-color: #AAB7B8;
+  font-family: "Arial", Times, sans-serif;
+
+}
+.Oppgave_2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+}
+h3{
+  font-style: italic;
+}
+h1 {
+  font-style: oblique;
+
+}
+header{
+  text-align: center;
+  background-color: #85C1E9;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.Oppgave_1{
+  background-color:#85C1E9;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+}
+.Oppgave_2{
+  background-color:#85C1E9;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.kilder{
+  background-color:#85C1E9;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 5px;
+}
+.Liste1{
+
+}
+.Liste2{
+
+}
