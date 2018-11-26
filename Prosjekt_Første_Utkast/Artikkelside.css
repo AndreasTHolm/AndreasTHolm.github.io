@@ -1,0 +1,22 @@
+.Produkt{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px;
+}
+.Bilde{
+  height: 350px;
+  width: 350px;
+  margin: 20px;
+  margin-left:
+
+}
+.dropdown{
+  background-color: #333;
+}
+#Buy{
+  color: white;
+  text-decoration: none;
+}
+#Beskrivelse{
+  margin: 0px;
+}

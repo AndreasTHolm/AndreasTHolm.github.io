@@ -1,0 +1,19 @@
+.Putt_inn_overskrift_for_kategori{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.Liste_med_Produkter{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 20px;
+}
+.Mellomstort_Bilde{
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+}
+.Recently_Looked_At{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 20px;
+}
