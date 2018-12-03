@@ -1,22 +1,57 @@
 .Produkt{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
-.Bilde{
-  height: 350px;
-  width: 350px;
+#Produktbilde{
+  height: 450px;
+  width: 425px;
   margin: 20px;
-  margin-left:
-
 }
 .dropdown{
-  background-color: #333;
+  background-color: #262626;
 }
 #Buy{
   color: white;
   text-decoration: none;
 }
 #Beskrivelse{
+  display: grid;
+  grid-column: 3/3;
   margin: 0px;
+  padding: 0px;
+  margin-top: 25px;
+  text-decoration: none;
+}
+#Produktnavn{
+  margin: 0px;
+  padding: 0px;
+  margin-top: 25px;
+}
+nav{
+  margin-bottom: : 0px;
+}
+.Sizebutton{
+  display: grid;
+  margin-right: 228px;
+  margin-bottom: 10px;
+}
+.Wishlistbutton{
+  margin-left: 68px;
+}
+#Product_Number{
+  color: grey;
+  font-size: 12px;
+}
+.Mellomstort_Bilde{
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+}
+.Recently_Looked_At{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 20px;
+}
+h1{
+  padding-top: 4px;
 }
