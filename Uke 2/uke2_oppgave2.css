@@ -1,0 +1,23 @@
+body{
+  background-color: blue;
+}
+@media (max-width: 1400px) {
+  body{
+    background-image: url("Gard vinner håndballcup.jpg");
+  }
+}
+@media (max-width: 1000px) {
+  body{
+    background-image: url("KrabbeGard.PNG");
+  }
+}
+@media (max-width: 800px) {
+  body{
+    background-image: url("Gard på fisketur.jpg");
+  }
+}
+@media (max-width: 600px) {
+  body{
+    background-image: url("Pæra_Gard.PNG");
+  }
+}
