@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBJlNG6pjQUiTNqNH0_TGCoFVl0p2zBChU",
+        authDomain: "databaser-b492e.firebaseapp.com",
+        databaseURL: "https://databaser-b492e.firebaseio.com",
+        projectId: "databaser-b492e",
+        storageBucket: "",
+        messagingSenderId: "564741045464"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script>
+      const db = firebase.database();
+      const kontaktliste = db.ref("kontaktliste")
+      kontaktliste.push(
+      {
+        "navn": "Gard",
+        "mellomnavn": "Risøy",
+        "etternavn": "Borgheim",
+        "telefonnummer": "41394114",
+        "hjemadresse": "Bakåsveien 58a",
+      }
+      )
+      kontaktliste.push(
+        {
+          "navn": "Andreas",
+          "mellomnavn": "Tanke",
+          "etternavn": "Holm",
+          "telefonnummer": "90020069",
+          "hjemadresse": "Lesterudkroken 29",
+        }
+      )
+      kontaktliste.push(
+        {
+          "navn": "Jakob",
+          "mellomnavn": "Winther",
+          "etternavn": "Storaas",
+          "telefonnummer": "48220970",
+          "hjemadresse": "Mellomskarva 4",
+        }
+      )
+      kontaktliste.push(
+        {
+          "navn": "Sondre",
+          "mellomnavn": "",
+          "etternavn": "Moen",
+          "telefonnummer": "45283111",
+          "hjemadresse": "Guldbranslia 17",
+        }
+      )
+    </script>
+
+  </body>
+</html>

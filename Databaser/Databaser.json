@@ -1,0 +1,40 @@
+{
+  "navn": "Andreas",
+  "fødselsdato": "05.10.2001",
+  "adresse": "Lesterudkroken 29",
+  "interesser": ["trening", "data", "netflix"],
+  "aids": "false",
+}
+
+{
+  "land": "Norge",
+  "kontinent": "Europa",
+  "innbyggere": "5,3 millioner",
+  "areal": "385 180",
+  "språk": "Norsk",
+  "diktatur": "false",
+}
+{
+  "land": "USA",
+  "kontinent": "Nord-Amerika",
+  "innbyggere": "321 368 864",
+  "areal": "9 826 630",
+  "språk": "Engelsk",
+  "diktatur": "false",
+}
+{
+  "land": "Nord Korea",
+  "kontinent": "Asia",
+  "innbyggere": "24 983 205",
+  "areal": "120 540",
+  "språk": "Koreansk",
+  "diktatur": "True",
+}
+{
+  "land": "Sveits",
+  "kontinent": "Europa",
+  "innbyggere": "8 121 830",
+  "areal": "41 290",
+  "språk": ["tysk", "fransk", "italiensk"],
+  "diktatur": "False",
+}
