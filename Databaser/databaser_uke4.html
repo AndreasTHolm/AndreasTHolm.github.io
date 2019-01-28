@@ -3,61 +3,89 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="databaser_uke4.css">
   </head>
   <body>
-    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
     <script>
-      // Initialize Firebase
       var config = {
-        apiKey: "AIzaSyBJlNG6pjQUiTNqNH0_TGCoFVl0p2zBChU",
-        authDomain: "databaser-b492e.firebaseapp.com",
-        databaseURL: "https://databaser-b492e.firebaseio.com",
-        projectId: "databaser-b492e",
+        apiKey: "AIzaSyDaiYywWGJC8VwQzsTo-gzW2C4Doz8Gu8k",
+        authDomain: "uke5-dccb7.firebaseapp.com",
+        databaseURL: "https://uke5-dccb7.firebaseio.com",
+        projectId: "uke5-dccb7",
         storageBucket: "",
-        messagingSenderId: "564741045464"
+        messagingSenderId: "328773428442"
       };
       firebase.initializeApp(config);
     </script>
     <script>
-      const db = firebase.database();
-      const kontaktliste = db.ref("kontaktliste")
-      kontaktliste.push(
-      {
-        "navn": "Gard",
-        "mellomnavn": "Risøy",
-        "etternavn": "Borgheim",
-        "telefonnummer": "41394114",
-        "hjemadresse": "Bakåsveien 58a",
-      }
-      )
-      kontaktliste.push(
-        {
-          "navn": "Andreas",
-          "mellomnavn": "Tanke",
-          "etternavn": "Holm",
-          "telefonnummer": "90020069",
-          "hjemadresse": "Lesterudkroken 29",
-        }
-      )
-      kontaktliste.push(
-        {
-          "navn": "Jakob",
-          "mellomnavn": "Winther",
-          "etternavn": "Storaas",
-          "telefonnummer": "48220970",
-          "hjemadresse": "Mellomskarva 4",
-        }
-      )
-      kontaktliste.push(
-        {
-          "navn": "Sondre",
-          "mellomnavn": "",
-          "etternavn": "Moen",
-          "telefonnummer": "45283111",
-          "hjemadresse": "Guldbranslia 17",
-        }
-      )
-    </script>
 
+      const db = firebase.database();
+      const kontaktliste = db.ref("kontaktliste");
+      const kontakter = db.ref("kontakter");
+
+      kontakter.remove();
+
+      const billGates = kontakter.child("12345678");
+      billGates.set({
+        navn: "Bill Tates",
+        epost: "bill@microsoft.com"
+      });
+      const georgeBush = kontakter.child("12345679");
+      georgeBush.set({
+        navn: "George Bush",
+        epost: "george@us.com"
+      });
+      billGates.update({
+        navn: "Bill Gates"
+      })
+    </script>
+    <section>
+          <form id="skjema">
+              <input id="inpNavn" type="text" required placeholder="navn">
+              <input id="inpTelefon" type="text" required placeholder="telefon">
+              <input id="inpEpost" type="text" required placeholder="epost">
+              <button type="submit">Registrer kontakt</button>
+          </form>
+      </section>
+      <section id="secKontakter">
+      </section>
+
+    <script>
+    const skjema = document.querySelector("#skjema");
+    const inpNavn = document.querySelector("#inpNavn");
+    const inpTelefon = document.querySelector("#inpTelefon");
+    const inpEpost = document.querySelector("#inpEpost");
+    const secKontakter = document.querySelector("#secKontakter");
+
+    function registrerKontakt(evt) {
+        evt.preventDefault();
+        const key = inpTelefon.value;
+        const data = {
+            navn: inpNavn.value,
+            epost: inpEpost.value
+        };
+        const kontakt = kontakter.child(key);
+        kontakt.set(data);
+
+        skjema.reset();
+    }
+
+    skjema.addEventListener("submit", registrerKontakt);
+    
+    </script>
+    <script>
+      function visKontakt(snap) {
+          const telefon = snap.key;
+          const kontakt = snap.val();
+          secKontakter.innerHTML += `
+              <div>${kontakt.navn}</div>
+              <div>${telefon}</div>
+              <div>${kontakt.epost}</div>
+          `;
+      }
+      skjema.addEventListener("submit", registrerKontakt);
+      kontakter.on("child_added", visKontakt);
+    </script>
   </body>
 </html>
