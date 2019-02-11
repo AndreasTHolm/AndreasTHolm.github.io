@@ -1,0 +1,11 @@
+body{
+  font-family: "Arial", Times, sans-serif;
+}
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align: center;
+}
+.pokemon{
+
+}

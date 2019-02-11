@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pokemon</title>
+    <link rel="stylesheet" type="text/css" href="pokemon.css">
+  </head>
+  <body>
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyDlY7vjvfW-XdaXl28dL20WSyhD47_2H7Y",
+        authDomain: "pokemon-f8b40.firebaseapp.com",
+        databaseURL: "https://pokemon-f8b40.firebaseio.com",
+        projectId: "pokemon-f8b40",
+        storageBucket: "pokemon-f8b40.appspot.com",
+        messagingSenderId: "676967636998"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <header>
+      <nav>
+        <button onclick="visType1Normal">Sort by Type 1 Normal</button>
+      </nav>
+    </header>
+    <main>
+    </main>
+    <script>
+      const main = document.querySelector("main");
+      const db = firebase.database();
+      const pokemon = db.ref("pokemon");
+
+      function visPokemon(snapshot){
+          let pokemon = snapshot.val();
+          main.innerHTML +=`
+              <article class="pokemon">
+                  <h1>${pokemon.Name}</h1>
+                  <img src=${pokemon["Image URL"]}>
+                  <p>Type 1: ${pokemon["Type 1"]}</p>
+                  <p>Type 2: ${pokemon["Type 2"]}</p>
+                  <p>Max CP: ${pokemon["Max CP"]}</p>
+                  <p>Max HP: ${pokemon["Max HP"]}</p>
+              </article>
+          `
+      }
+      pokemon.on("child_added", visPokemon);
+      function visType1Normal(){
+        pokemon
+          orderByChild("Normal")
+          .limitToFirst(6)
+          .on("child_added, visPokemon");
+      }
+
+
+    </script>
+  </body>
+</html>
