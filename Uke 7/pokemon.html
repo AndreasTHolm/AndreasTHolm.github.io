@@ -20,7 +20,14 @@
     </script>
     <header>
       <nav>
-        <button onclick="visType1Normal">Sort by Type 1 Normal</button>
+        <button onclick="visAlle()">Show All</button>
+        <button onclick="visType1Normal()">Sort by Type 1 Normal</button>
+        <button onclick="visType1Fire()">Sort by Type 1 Fire</button>
+        <button onclick="visType1Water()">Sort by Type 1 Water</button>
+        <button onclick="visType1Grass()">Sort by Type 1 Grass</button>
+        <button onclick="vis10lavestCP()">Sort by Lowest CP</button>
+        <button onclick="vis10høyesteCP()">Sort by Highest CP</button>
+        <button onclick="visAlfabetisk()">Sort by Alphabetical Order</button>
       </nav>
     </header>
     <main>
@@ -43,14 +50,60 @@
               </article>
           `
       }
-      pokemon.on("child_added", visPokemon);
-      function visType1Normal(){
-        pokemon
-          orderByChild("Normal")
-          .limitToFirst(6)
-          .on("child_added, visPokemon");
+      function visAlle(){
+        main.innerHTML=""
+        pokemon.on("child_added", visPokemon);
       }
+      visAlle();
 
+      function visType1Normal(){
+        main.innerHTML=""
+        pokemon
+          .orderByChild("Type 1")
+          .equalTo("Normal")
+          .on("child_added", visPokemon);
+      }
+      function visType1Fire(){
+        main.innerHTML=""
+        pokemon
+          .orderByChild("Type 1")
+          .equalTo("Fire")
+          .on("child_added", visPokemon);
+      }
+      function visType1Water(){
+        main.innerHTML=""
+        pokemon
+          .orderByChild("Type 1")
+          .equalTo("Water")
+          .on("child_added", visPokemon);
+      }
+      function visType1Grass(){
+        main.innerHTML=""
+        pokemon
+          .orderByChild("Type 1")
+          .equalTo("Grass")
+          .on("child_added", visPokemon);
+      }
+      function vis10lavestCP(){
+        main.innerHTML=""
+        pokemon
+        .orderByChild("Max CP")
+        .limitToFirst(10)
+        .on("child_added", visPokemon);
+      }
+      function vis10høyesteCP(){
+        main.innerHTML=""
+        pokemon
+        .orderByChild("Max CP")
+        .limitToLast(10)
+        .on("child_added", visPokemon);
+      }
+      function visAlfabetisk(){
+        main.innerHTML=""
+        pokemon
+        .orderByChild("Name")
+        .on("child_added", visPokemon);
+      }
 
     </script>
   </body>
