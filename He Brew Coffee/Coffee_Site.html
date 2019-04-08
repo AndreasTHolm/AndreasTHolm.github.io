@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Coffee</title>
+    <link rel="stylesheet" type="text/css" href="HeBrewCoffee.css">
+  </head>
+  <body>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyAFUuR8I6MVgw8v_quuSbdgLpOmXguLi_E",
+        authDomain: "he-brew-coffee.firebaseapp.com",
+        databaseURL: "https://he-brew-coffee.firebaseio.com",
+        projectId: "he-brew-coffee",
+        storageBucket: "he-brew-coffee.appspot.com",
+        messagingSenderId: "921439253073"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <header>
+      <nav>
+        <img src="p">
+        <a href="Main_Site.html">Home</a>
+        <a href="Coffee_Site.html">Coffee</a>
+        <a href="Explore_Site.html">Explore</a>
+      </nav>
+    </header>
+    <main> <!-- Her skal jeg lage et bedre system for å sortere, med blandt annet dropdown meny for de forskjellige filterforslagene, her bare laget noen få for å vise at jeg kan sortere!-->
+      <section class="Filtering">
+        <button onclick="showCoffee()">Show All</button>
+        <button onclick="showStarbucks()">Show Starbucks Only</button>
+        <button onclick="showStockfleths()">Show Stockfleths Only</button>
+        <button onclick="showCoffeOfTheWorld()">Show Coffe Of The World Only</button>
+      </section>
+      <section class="SortCoffe">
+
+      </section>
+    </main>
+      <script>
+        const SortCoffee = document.querySelector(".SortCoffe");
+        const db = firebase.database();
+        const Coffee = db.ref("coffee");
+
+        function generateCoffee(snapshot){
+            let coffee = snapshot.val();
+            let key = snapshot.key;
+            SortCoffee.innerHTML +=`
+
+            <article class="coffee">
+                <a href="Product_Site.html?id=${key}">
+                <img id="image" src=${coffee["ImageURL"]}>
+                <h1 id="Product_Header">${coffee.Name}</h1>
+                <p>Price: ${coffee["Price"]}</p>
+                <p>Weight: ${coffee["Weight"]}</p>
+                <p>Country: ${coffee["Country"]}</p>
+                </a>
+            </article>
+        `
+        }
+        function showCoffee(){
+          SortCoffee.innerHTML=""
+          Coffee
+          .on("child_added", generateCoffee);
+        }
+        showCoffee();
+
+        function showStarbucks(){
+          SortCoffee.innerHTML=""
+          Coffee
+          .orderByChild("Brand")
+          .equalTo("Starbucks")
+          .on("child_added", generateCoffee);
+        }
+        function showStockfleths(){
+          SortCoffee.innerHTML=""
+          Coffee
+          .orderByChild("Brand")
+          .equalTo("Stockfleths")
+          .on("child_added", generateCoffee);
+        }
+        function showCoffeOfTheWorld(){
+          SortCoffee.innerHTML=""
+          Coffee
+          .orderByChild("Brand")
+          .equalTo("Coffee Of The World")
+          .on("child_added", generateCoffee);
+        }
+
+      </script>
+  </body>
+</html>

@@ -25,12 +25,15 @@
         <button onclick="visType1Fire()">Sort by Type 1 Fire</button>
         <button onclick="visType1Water()">Sort by Type 1 Water</button>
         <button onclick="visType1Grass()">Sort by Type 1 Grass</button>
+        <button onclick="visType1Electric()">Sort by Type 1 Electric</button>
         <button onclick="vis10lavestCP()">Sort by Lowest CP</button>
         <button onclick="vis10høyesteCP()">Sort by Highest CP</button>
         <button onclick="visAlfabetisk()">Sort by Alphabetical Order</button>
+        <button onclick="visAtilD()">Sort by A to D</button>
       </nav>
     </header>
     <main>
+
     </main>
     <script>
       const main = document.querySelector("main");
@@ -39,14 +42,21 @@
 
       function visPokemon(snapshot){
           let pokemon = snapshot.val();
+          let key = snapshot.key;
+          console.log("Test")
           main.innerHTML +=`
+          
               <article class="pokemon">
+                  <a href="pokestats.html?id=${key}">
                   <h1>${pokemon.Name}</h1>
                   <img src=${pokemon["Image URL"]}>
                   <p>Type 1: ${pokemon["Type 1"]}</p>
                   <p>Type 2: ${pokemon["Type 2"]}</p>
                   <p>Max CP: ${pokemon["Max CP"]}</p>
                   <p>Max HP: ${pokemon["Max HP"]}</p>
+                  </a>
+                  <!--<a href="pokestats.html?id=${key}"></a>!-->
+
               </article>
           `
       }
@@ -62,6 +72,10 @@
           .orderByChild("Type 1")
           .equalTo("Normal")
           .on("child_added", visPokemon);
+        pokemon
+            .orderByChild("Type 2")
+            .equalTo("Normal")
+            .on("child_added", visPokemon);
       }
       function visType1Fire(){
         main.innerHTML=""
@@ -69,6 +83,10 @@
           .orderByChild("Type 1")
           .equalTo("Fire")
           .on("child_added", visPokemon);
+          pokemon
+            .orderByChild("Type 2")
+            .equalTo("Fire")
+            .on("child_added", visPokemon);
       }
       function visType1Water(){
         main.innerHTML=""
@@ -76,6 +94,10 @@
           .orderByChild("Type 1")
           .equalTo("Water")
           .on("child_added", visPokemon);
+          pokemon
+            .orderByChild("Type 2")
+            .equalTo("Water")
+            .on("child_added", visPokemon);
       }
       function visType1Grass(){
         main.innerHTML=""
@@ -83,6 +105,10 @@
           .orderByChild("Type 1")
           .equalTo("Grass")
           .on("child_added", visPokemon);
+          pokemon
+            .orderByChild("Type 2")
+            .equalTo("Grass")
+            .on("child_added", visPokemon);
       }
       function vis10lavestCP(){
         main.innerHTML=""
@@ -102,6 +128,21 @@
         main.innerHTML=""
         pokemon
         .orderByChild("Name")
+        .on("child_added", visPokemon);
+      }
+      function visType1Electric(){
+        main.innerHTML=""
+        pokemon
+        .orderByChild("Type 1")
+        .equalTo("Electric")
+        .on("child_added", visPokemon);
+      }
+      function visAtilD(){
+        main.innerHTML=""
+        pokemon
+        .orderByChild("Name")
+        .startAt("A")
+        .endAt("D")
         .on("child_added", visPokemon);
       }
 

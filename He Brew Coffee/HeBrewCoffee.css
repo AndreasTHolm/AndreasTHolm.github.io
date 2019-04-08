@@ -1,0 +1,50 @@
+body{
+  font-family: "Arial", Times, sans-serif;
+}
+nav{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border-bottom: 1px solid black;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+nav{
+  position: sticky;
+  top: 0;
+  position: -webkit-sticky;
+  background-color: white;
+}
+main img{
+  width: 300px;
+}
+.Top_3_Picks{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-decoration: none;
+}
+.coffee{
+  text-align: left;
+}
+.SortCoffe{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+#Wallpaper{
+  height: 890px;
+  margin-top: 5px;
+}
+#Top3Picks{
+  text-align: center;
+}
+#Product_Header{
+  text-align: left;
+}
+a{
+  text-decoration: none;
+  color: black;
+}

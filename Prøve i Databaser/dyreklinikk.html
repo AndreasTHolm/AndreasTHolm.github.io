@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dyreklinikken</title>
+    <link rel="stylesheet" type="text/css" href="dyreklinikk.css">
+    <!-- Husk å koble til firebase -->
+  </head>
+  <body>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyA9IWBnuSr-GqEeg4_GZ2ntKx2Mptzf3Hk",
+      authDomain: "dyreklinikk-17593.firebaseapp.com",
+      databaseURL: "https://dyreklinikk-17593.firebaseio.com",
+      projectId: "dyreklinikk-17593",
+      storageBucket: "dyreklinikk-17593.appspot.com",
+      messagingSenderId: "1093774077485"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <header>
+      <nav>
+        <button onclick="">Oppgave 3a</button> <!-- Gjør ferdig knappene og koblingene her-->
+        <button onclick="visKatterAlfabetisk()">Vis katter alfabetisk</button>
+        <button onclick="visTreEldsteHunder()">Vis tre eldste hundene</button>
+        <button onclick="visAlleBeigeDyr()">Vis Alle beige dyr</button>
+        <button onclick="visAlleDyrMedNavnMellomMogT()">Vis alle dyr med navn mellom M og T</button>
+      </nav>
+    </header>
+    <main>
+
+    </main>
+    <script>
+      const main = document.querySelector("main");
+      const db = firebase.database();
+      const hunder = db.ref("Dyr/Hunder");  //Fyll inn riktig referanse
+      const katter = db.ref("Dyr/Katter")   //Lag en referanse for katter også!
+
+      function genererHTML(snapshot){
+        let dyr = snapshot.val();
+        let key = snapshot.key;
+        main.innerHTML +=`
+            <article class="Dyr">
+              <h1>${dyr.Navn}</h1>
+              <img src="${dyr.Bilde}" alt="">
+              <p>Farge: ${dyr.Farge1}, ${dyr.Farge2}</p>
+              <p>Alder: ${dyr.Alder}</p>
+              <a href="dyredetaljer.html?id=${key}">Detaljer</a>
+            </article>
+        `
+      }
+      function visAlle(){
+        main.innerHTML = "";
+        hunder.on("child_added",genererHTML);
+        katter.on("child_added", genererHTML);
+      }
+
+      visAlle();
+
+      function visKatterAlfabetisk(){
+        main.innerHTML = "";
+        katter
+        .orderByChild("Navn")
+        .on("child_added", genererHTML);
+      }
+
+      function visTreEldsteHunder(){
+        main.innerHTML = "";
+        hunder
+        .orderByChild("Alder")
+        .limitToLast(3)
+        .on("child_added", genererHTML);
+      }
+
+      function visAlleBeigeDyr(){
+        main.innerHTML = "";
+        katter
+        .orderByChild("Farge1")
+        .equalTo("Beige")
+        .on("child_added", genererHTML);
+        katter
+        .orderByChild("Farge2")
+        .equalTo("Beige")
+        .on("child_added", genererHTML);
+        hunder
+        .orderByChild("Farge1")
+        .equalTo("Beige")
+        .on("child_added", genererHTML);
+        hunder
+        .orderByChild("Farge2")
+        .equalTo("Beige")
+        .on("child_added", genererHTML);
+      }
+      function visAlleDyrMedNavnMellomMogT(){
+        main.innerHTML = "";
+        katter
+        .orderByChild("Navn")
+        .startAt("M")
+        .endAt("T")
+        .on("child_added", genererHTML);
+        hunder
+        .orderByChild("Navn")
+        .startAt("M")
+        .endAt("T")
+        .on("child_added", genererHTML);
+      }
+
+
+      // Lag egne funksjoner som tilfredstiller spørringene til oppgave 3A, 3B, 3C og 3D her:
+
+    </script>
+
+  </body>
+</html>
