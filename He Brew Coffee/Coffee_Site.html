@@ -20,7 +20,7 @@
     </script>
     <header>
       <nav>
-        <img src="p">
+        <img id="coffecup_logo" src="coffeecup_logo2.png">
         <a href="Main_Site.html">Home</a>
         <a href="Coffee_Site.html">Coffee</a>
         <a href="Explore_Site.html">Explore</a>
@@ -28,13 +28,22 @@
     </header>
     <main> <!-- Her skal jeg lage et bedre system for å sortere, med blandt annet dropdown meny for de forskjellige filterforslagene, her bare laget noen få for å vise at jeg kan sortere!-->
       <section class="Filtering">
-        <button onclick="showCoffee()">Show All</button>
-        <button onclick="showStarbucks()">Show Starbucks Only</button>
-        <button onclick="showStockfleths()">Show Stockfleths Only</button>
-        <button onclick="showCoffeOfTheWorld()">Show Coffe Of The World Only</button>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="showCoffee()">Show All</button>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">Sort by Brand</button>
+          <div class="dropdown-content">
+            <button onclick="showStarbucks()">Starbucks</button>
+            <button onclick="showStockfleths()">Stockfleths</button>
+            <button onclick="showCoffeOfTheWorld()">Coffe Of The World</button>
+            <button onclick="showJacobsUtvalgte()">Jacobs Utvalgte</button>
+            <button onclick="showKaffebrenneriet()">Kaffebrenneriet</button>
+          </div>
+        </div>
       </section>
       <section class="SortCoffe">
-
       </section>
     </main>
       <script>
@@ -84,6 +93,20 @@
           Coffee
           .orderByChild("Brand")
           .equalTo("Coffee Of The World")
+          .on("child_added", generateCoffee);
+        }
+        function showJacobsUtvalgte(){
+          SortCoffee.innerHTML=""
+          Coffee
+          .orderByChild("Brand")
+          .equalTo("Jacobs Utvalgte")
+          .on("child_added", generateCoffee);
+        }
+        function showKaffebrenneriet(){
+          SortCoffee.innerHTML=""
+          Coffee
+          .orderByChild("Brand")
+          .equalTo("Kaffebrenneriet")
           .on("child_added", generateCoffee);
         }
 

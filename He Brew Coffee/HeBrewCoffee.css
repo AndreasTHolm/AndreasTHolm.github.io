@@ -1,5 +1,6 @@
 body{
   font-family: "Arial", Times, sans-serif;
+  margin: 0px;
 }
 nav{
   display: grid;
@@ -11,6 +12,7 @@ nav a{
     color: black;
     padding: 10px;
     margin: 10px;
+    margin-top: 35px;
     text-align: center;
 }
 nav{
@@ -20,12 +22,20 @@ nav{
   background-color: white;
 }
 main img{
+  object-fit: cover;
   width: 300px;
+  height: 450px;
+  border-radius: 15px;
 }
 .Top_3_Picks{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   text-decoration: none;
+  object-fit: cover;
+  width: 300px;
+  height: 450px;
+  border-radius: 15px;
+  margin-left: 18.5%;
 }
 .coffee{
   text-align: left;
@@ -33,18 +43,88 @@ main img{
 .SortCoffe{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-right: 5%;
+  margin-left: 5.5%;
+}
+.History{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.TextHistory{
+  text-align: center;
+  font-size: 25px;
+  margin-top: 10%;
+}
+.Filtering{
+  margin-top: 30px;
+  margin-left: 80px;
 }
 #Wallpaper{
-  height: 890px;
+  height: 900px;
   margin-top: 5px;
 }
 #Top3Picks{
   text-align: center;
 }
+#History{
+  text-align: center;
+  margin-top: 200px;
+}
 #Product_Header{
   text-align: left;
+}
+#coffecup_logo{
+  width: 100px;
+  margin-left: 20px;
+}
+#steamingcoffee{
+  object-fit: fill;
+  width: 650px;
+  border-radius: 15px;
+  margin-left: 30px;
+}
+#CoffeeButton{
+  border-left: 1px solid black;
+  border-right: 1px solid black;
 }
 a{
   text-decoration: none;
   color: black;
+}
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: darkgrey;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+}
+/* Links inside the dropdown */
+.dropdown-content button {
+  color: black;
+  padding: 20px;
+  text-decoration: none;
+  text-align: center;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content button:hover {
+  background-color: #f1f1f1}
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: black;
 }
