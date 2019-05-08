@@ -28,38 +28,40 @@
       </nav>
     </header>
     <main>
+      <section class="ProductSite">
 
-
+      </section>
     </main>
 
     <script>
-      const main = document.querySelector("main");
-      // Hente ID fra URL
-      var url_string = window.location.href; //hent fra vår side
+      const ProductSite = document.querySelector(".ProductSite");
+      var url_string = window.location.href;
       var url = new URL(url_string);
       var id = url.searchParams.get("id");
-
-      //Referanse til database
       const db = firebase.database();
-      const Coffee =db.ref("coffee/" + id) //betyr at man kun kaller på en kaffe med iden man kaller på
+      const Coffee =db.ref("coffee/" + id)
 
       function showCoffee(snapshot){
           let coffee = snapshot.val();
           let key = snapshot.key;
-          main.innerHTML +=`
+          ProductSite.innerHTML +=`
             <article class="coffee_product">
-                <a href="Product_Site.html?id=${key}">
-                <h1>${coffee.Brand}</h1>
-                <img id="product_image" src=${coffee["ImageURL"]}>
-                <h1 id="Product_Header">${coffee.Name}</h1>
-                <p>Country: ${coffee["Country"]}</p>
-                <p>Main Aroma: ${coffee["Aroma 1"]}</p>
-                <p>Second Aroma: ${coffee["Aroma 2"]}</p>
-
-                <p>${coffee["Description"]}</p>
-                <p>Price: ${coffee["Price"]}</p>
-                <p>Weight: ${coffee["Weight"]}</p>
-                </a>
+              <div class="image_product">
+                <img id="image_product" src=${coffee["ImageURL"]}>
+              </div>
+              <div class="info_product">
+              <h1 id="Brandname"> ${coffee.Brand}</h1>
+              <h1 id="header_product">${coffee.Name}</h1>
+              <p>Country: ${coffee["Country"]}</p>
+              <p>Main Aroma: ${coffee["Aroma 1"]}</p>
+              <p>Second Aroma: ${coffee["Aroma 2"]}</p>
+                <div class="PriceandCart">
+                  <p>Price: ${coffee["Price"]}</p>
+                  <button id="Cart" onclick="addToCart()">Add to Cart</button>
+                </div>
+              <p>Weight: ${coffee["Weight"]}</p>
+              <p>${coffee["Description"]}</p>
+              </div>
             </article>
           `
         }

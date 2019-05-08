@@ -22,13 +22,90 @@
       <nav>
         <img id="coffecup_logo" src="coffeecup_logo2.png">
         <a href="Main_Site.html">Home</a>
-        <a href="Coffee_Site.html">Coffee</a>
+        <a id="CoffeeButton" href="Coffee_Site.html">Coffee</a>
         <a href="Explore_Site.html">Explore</a>
       </nav>
     </header>
     <main>
-
-
+      <section class="World_Map">
+        <img id="WorldMapWallpaper"src="https://iisabellam.github.io/Thirstea/bilder/kart.jpg" alt="">
+        <div class="SouthAmerica"> <button class="showcontinentbutton" onclick="showSouthAmerica()"></button> </div>
+        <div class="NorthAmerica"> <button class="showcontinentbutton" onclick="showNorthAmerica()"></div>
+        <div class="Africa"> <button class="showcontinentbutton" onclick="showAfrica()"></div>
+        <div class="Europe"> <button class="showcontinentbutton" onclick="showEurope()"></div>
+        <div class="AsiaAndOceania"> <button class="showcontinentbutton" onclick="showAsiaAndOceania()"></div>
+      </section>
+      <section class="NavigateMap">
+        <h1 id="ClickContinent">Click on the Continent Name of Where you Want Your Coffee to Origin From</h1>
+      </section>
+      <section class="SortCoffe">
+      </section>
     </main>
+    <script>
+      const SortCoffee = document.querySelector(".SortCoffe");
+      const db = firebase.database();
+      const Coffee = db.ref("coffee");
+
+      function generateCoffee(snapshot){
+          let coffee = snapshot.val();
+          let key = snapshot.key;
+          SortCoffee.innerHTML +=`
+
+          <article class="coffee">
+              <a href="Product_Site.html?id=${key}">
+              <img id="image" src=${coffee["ImageURL"]}>
+              <h1 id="Product_Header">${coffee.Name}</h1>
+              <p>Price: ${coffee["Price"]}</p>
+              <p>Weight: ${coffee["Weight"]}</p>
+              <p>Country: ${coffee["Country"]}</p>
+              </a>
+          </article>
+      `
+      }
+      showCoffee();
+      function showSouthAmerica(){
+        SortCoffee.innerHTML=""
+        Coffee
+        .orderByChild("Continent")
+        .equalTo("South America")
+        .on("child_added", generateCoffee);
+      }
+      showCoffee();
+      function showNorthAmerica(){
+        SortCoffee.innerHTML=""
+        Coffee
+        .orderByChild("Continent")
+        .equalTo("North America")
+        .on("child_added", generateCoffee);
+      }
+      showCoffee();
+      function showEurope(){
+        SortCoffee.innerHTML=""
+        Coffee
+        .orderByChild("Continent")
+        .equalTo("Europe")
+        .on("child_added", generateCoffee);
+      }
+      showCoffee();
+      function showAfrica(){
+        SortCoffee.innerHTML=""
+        Coffee
+        .orderByChild("Continent")
+        .equalTo("Africa")
+        .on("child_added", generateCoffee);
+      }
+      showCoffee();
+      function showAsiaAndOceania(){
+        SortCoffee.innerHTML=""
+        Coffee
+        .orderByChild("Continent")
+        .equalTo("Asia")
+        .on("child_added", generateCoffee);
+        Coffee
+        .orderByChild("Continent")
+        .equalTo("Oceania")
+        .on("child_added", generateCoffee);
+      }
+      </script>
   </body>
 </html>

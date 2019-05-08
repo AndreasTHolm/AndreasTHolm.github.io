@@ -1,59 +1,77 @@
 body{
-  font-family: "Arial", Times, sans-serif;
+  font-family: "Courier", Times, sans-serif;
   margin: 0px;
 }
 nav{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   border-bottom: 1px solid black;
+  position: sticky;
+  top: 0;
+  position: -webkit-sticky;
+  background-color: white;
 }
 nav a{
     text-decoration: none;
+    font-size: 20px;
     color: black;
     padding: 10px;
     margin: 10px;
     margin-top: 35px;
     text-align: center;
 }
-nav{
-  position: sticky;
-  top: 0;
-  position: -webkit-sticky;
-  background-color: white;
-}
 main img{
   object-fit: cover;
-  width: 300px;
-  height: 450px;
-  border-radius: 15px;
+  width: 250px;
+  height: 350px;
+  margin-top: 20px;
 }
 .Top_3_Picks{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   text-decoration: none;
+  margin-left: 6%;
+}
+.Top_3_Picks img{
   object-fit: cover;
-  width: 300px;
-  height: 450px;
-  border-radius: 15px;
-  margin-left: 18.5%;
+  width: 250px;
+  height: 350px;
+  margin-top: 20px;
+}
+.Top3{
+  background-color: #D48D5F;
+  color: white;
+  padding-top: 17px;
+  padding-bottom: 17px;
+}
+.Wallpaper{
+  margin-bottom: 0px;
 }
 .coffee{
-  text-align: left;
+  text-align: center;
+  background-color: #E5E7E9;
+  margin: 20px;
+  border: 1px solid black;
+  box-shadow: 2px 4px #888888;
+  width: 315px;
+  height: 530px;
 }
 .SortCoffe{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin-right: 5%;
-  margin-left: 5.5%;
 }
 .History{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  font-size: 30px;
 }
 .TextHistory{
   text-align: center;
   font-size: 25px;
-  margin-top: 10%;
+  margin-right: 50px;
+  margin-top: 3%;
+  width: auto;
+  height: auto;
 }
 .Filtering{
   margin-top: 30px;
@@ -65,13 +83,21 @@ main img{
 }
 #Top3Picks{
   text-align: center;
+  font-size: 30px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 #History{
   text-align: center;
-  margin-top: 200px;
+  background-color: #D48D5F;
+  color: white;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 #Product_Header{
-  text-align: left;
+  text-align: center;
 }
 #coffecup_logo{
   width: 100px;
@@ -79,9 +105,11 @@ main img{
 }
 #steamingcoffee{
   object-fit: fill;
-  width: 650px;
-  border-radius: 15px;
-  margin-left: 30px;
+  width: 600px;
+  height: 450px;
+  padding: 0px;
+  margin-left: 50px;
+  margin-top: 6%;
 }
 #CoffeeButton{
   border-left: 1px solid black;
@@ -91,40 +119,129 @@ a{
   text-decoration: none;
   color: black;
 }
-/* Style The Dropdown Button */
 .dropbtn {
-  background-color: darkgrey;
+  background-color: #D48D5F;
   color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
 }
-/* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
   display: inline-block;
 }
-/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  object-fit: cover;
 }
-/* Links inside the dropdown */
 .dropdown-content button {
-  color: black;
-  padding: 20px;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
   text-decoration: none;
   text-align: center;
+  background-color: #D48D5F;
+  border: 1px solid black;
 }
-/* Change color of dropdown links on hover */
 .dropdown-content button:hover {
-  background-color: #f1f1f1}
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
+  background-color: #794520
 }
-/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropdown-content {
+  display: grid;
+}
 .dropdown:hover .dropbtn {
-  background-color: black;
+  background-color: #794520;
+}
+#WorldMapWallpaper{
+  height: 780px;
+  width: 1440px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 0px;
+  position: relative;
+}
+h9{
+  padding: 40px;
+  opacity: 0;
+}
+.Africa{
+  position: absolute;
+  top: 63%;
+  left: 49%;
+  transform: translate(-63%, -49%);
+  padding: 3px;
+}
+.AsiaAndOceania{
+  position: absolute;
+  top: 50%;
+  left: 68%;
+  transform: translate(-50%, -68%);
+}
+.SouthAmerica{
+  position: absolute;
+  top: 81%;
+  left: 34%;
+  transform: translate(-81%, -34%);
+}
+.NorthAmerica{
+  position: absolute;
+  top: 43%;
+  left: 20%;
+  transform: translate(-46%, -20%);
+}
+.Europe{
+  position: absolute;
+  top: 45%;
+  left: 51%;
+  transform: translate(-45%, -51%);
+}
+.showcontinentbutton{
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  opacity: 0;
+}
+#ClickContinent{
+  text-align: center;
+  background-color: #D48D5F;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  margin-top: 0px;
+}
+.coffee_product{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.info_product{
+  margin-top: 6%;
+  margin-right: 35%;
+  font-size: 18px;
+}
+.PriceandCart{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+#Cart{
+  width: 120px;
+  height: 50px;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  text-align: center;
+  background-color: #D48D5F;
+  border: 1px solid black;
+}
+#image_product{
+  width: 350px;
+  height: 500px;
+  margin-left: 35%;
+  margin-top: 10%;
+}
+#Brandname{
+  border-bottom: 1px solid #D48D5F;
+}
+#header_product{
+  font-style: italic;
 }

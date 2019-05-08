@@ -26,11 +26,19 @@
         <a href="Explore_Site.html">Explore</a>
       </nav>
     </header>
-    <main> <!-- Her skal jeg lage et bedre system for å sortere, med blandt annet dropdown meny for de forskjellige filterforslagene, her bare laget noen få for å vise at jeg kan sortere!-->
+    <main>
       <section class="Filtering">
         <div class="dropdown">
           <button class="dropbtn" onclick="showCoffee()">Show All</button>
-          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="showAlphabetical()">Alphabetical</button>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="showPriceLowHigh()">Price: Low to High</button>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="showPriceHighLow()">Price: High to Low</button>
         </div>
         <div class="dropdown">
           <button class="dropbtn">Sort by Brand</button>
@@ -109,7 +117,26 @@
           .equalTo("Kaffebrenneriet")
           .on("child_added", generateCoffee);
         }
-
+        function showAlphabetical(){
+          SortCoffee.innerHTML=""
+          Coffee
+          .orderByChild("Name")
+          .on("child_added", generateCoffee);
+        }
+        function showPriceLowHigh(){
+          SortCoffee.innerHTML=""
+          Coffee
+          .orderByChild("Price")
+          .limitToFirst(1000)
+          .on("child_added", generateCoffee);
+        }
+        function showPriceHighLow(){
+          SortCoffee.innerHTML=""
+          Coffee
+          .orderByChild("Brand")
+          .equalTo("Kaffebrenneriet")
+          .on("child_added", generateCoffee);
+        }
       </script>
   </body>
 </html>
