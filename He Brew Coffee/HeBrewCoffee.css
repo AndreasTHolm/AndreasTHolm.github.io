@@ -10,21 +10,38 @@ nav{
   top: 0;
   position: -webkit-sticky;
   background-color: white;
+  z-index: 100;
 }
 nav a{
-    text-decoration: none;
-    font-size: 20px;
-    color: black;
-    padding: 10px;
-    margin: 10px;
-    margin-top: 35px;
-    text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  padding: 10px;
+  margin: 10px;
+  margin-top: 35px;
+  text-align: center;
 }
 main img{
   object-fit: cover;
   width: 250px;
   height: 350px;
   margin-top: 20px;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+h9{
+  padding: 40px;
+  opacity: 0;
+}
+.HeBewCoffeeHeader{
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-45%, -51%);
+  text-align: center;
+  color: #794520;
 }
 .Top_3_Picks{
   display: grid;
@@ -55,6 +72,10 @@ main img{
   box-shadow: 2px 4px #888888;
   width: 315px;
   height: 530px;
+  transition: .5s ease;
+}
+.coffee:hover{
+  opacity: 0.5;
 }
 .SortCoffe{
   display: grid;
@@ -77,9 +98,101 @@ main img{
   margin-top: 30px;
   margin-left: 80px;
 }
+.dropbtn {
+  background-color: #D48D5F;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  object-fit: cover;
+}
+.dropdown-content button {
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  background-color: #D48D5F;
+  border: 1px solid black;
+}
+.dropdown-content button:hover {
+  background-color: #794520;
+}
+.dropdown:hover .dropdown-content {
+  display: grid;
+}
+.dropdown:hover .dropbtn {
+  background-color: #794520;
+}
+.World_Map{
+  position: relative;
+}
+.World_Map button:hover{
+  cursor: crosshair;
+}
+.Africa{
+  position: absolute;
+  top: 49%;
+  left: 51%;
+  transform: translate(-63%, -49%);
+  padding: 3px;
+}
+.AsiaAndOceania{
+  position: absolute;
+  top: 38%;
+  left: 68%;
+  transform: translate(-38%, -68%);
+}
+.SouthAmerica{
+  position: absolute;
+  top: 62%;
+  left: 32%;
+  transform: translate(-62%, -32%);
+}
+.NorthAmerica{
+  position: absolute;
+  top: 32%;
+  left: 20%;
+  transform: translate(-32%, -20%);
+}
+.Europe{
+  position: absolute;
+  top: 33%;
+  left: 49%;
+  transform: translate(-33%, -49%);
+}
+.showcontinentbutton{
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  opacity: 0;
+}
+.coffee_product{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.info_product{
+  margin-top: 6%;
+  margin-right: 35%;
+  font-size: 18px;
+}
+.PriceandCart{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 #Wallpaper{
-  height: 900px;
+  width: 100%;
   margin-top: 5px;
+  position: relative;
 }
 #Top3Picks{
   text-align: center;
@@ -115,114 +228,6 @@ main img{
   border-left: 1px solid black;
   border-right: 1px solid black;
 }
-a{
-  text-decoration: none;
-  color: black;
-}
-.dropbtn {
-  background-color: #D48D5F;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  object-fit: cover;
-}
-.dropdown-content button {
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  text-decoration: none;
-  text-align: center;
-  background-color: #D48D5F;
-  border: 1px solid black;
-}
-.dropdown-content button:hover {
-  background-color: #794520
-}
-.dropdown:hover .dropdown-content {
-  display: grid;
-}
-.dropdown:hover .dropbtn {
-  background-color: #794520;
-}
-#WorldMapWallpaper{
-  height: 780px;
-  width: 1440px;
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-top: 0px;
-  position: relative;
-}
-h9{
-  padding: 40px;
-  opacity: 0;
-}
-.Africa{
-  position: absolute;
-  top: 63%;
-  left: 49%;
-  transform: translate(-63%, -49%);
-  padding: 3px;
-}
-.AsiaAndOceania{
-  position: absolute;
-  top: 50%;
-  left: 68%;
-  transform: translate(-50%, -68%);
-}
-.SouthAmerica{
-  position: absolute;
-  top: 81%;
-  left: 34%;
-  transform: translate(-81%, -34%);
-}
-.NorthAmerica{
-  position: absolute;
-  top: 43%;
-  left: 20%;
-  transform: translate(-46%, -20%);
-}
-.Europe{
-  position: absolute;
-  top: 45%;
-  left: 51%;
-  transform: translate(-45%, -51%);
-}
-.showcontinentbutton{
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  opacity: 0;
-}
-#ClickContinent{
-  text-align: center;
-  background-color: #D48D5F;
-  padding-top: 17px;
-  padding-bottom: 17px;
-  margin-top: 0px;
-}
-.coffee_product{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.info_product{
-  margin-top: 6%;
-  margin-right: 35%;
-  font-size: 18px;
-}
-.PriceandCart{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
 #Cart{
   width: 120px;
   height: 50px;
@@ -244,4 +249,56 @@ h9{
 }
 #header_product{
   font-style: italic;
+}
+#ClickContinent{
+  text-align: center;
+  background-color: #D48D5F;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  margin-top: 0px;
+}
+#WorldMapWallpaper{
+  width: 100%;
+  height: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 0px;
+}
+@media(max-width:1200px){
+  .Top_3_Picks{
+    grid-template-columns: 1fr 1fr;
+  }
+  .History{
+    grid-template-columns: 1fr 1fr;
+  }
+  .SortCoffe{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media(max-width:1100px){
+  .History{
+    grid-template-columns: 1fr;
+  }
+  .SortCoffe{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media(max-width:900px){
+  nav{
+    grid-template-columns: 1fr;
+  }
+  .Top_3_Picks{
+    grid-template-columns: 1fr;
+  }
+  .SortCoffe{
+    grid-template-columns: 1fr 1fr;
+  }
+  .coffee_product{
+    grid-template-columns: 1fr;
+  }
+}
+@media(max-width:700px){
+  .SortCoffe{
+    grid-template-columns: 1fr;
+  }
 }

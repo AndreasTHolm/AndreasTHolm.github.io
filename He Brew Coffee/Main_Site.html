@@ -28,6 +28,10 @@
       <section class="Wallpaper">
         <img id="Wallpaper" src="CoffeeWallpaper2.jpg" alt="">
       </section>
+      <section class="HeBewCoffeeHeader">
+        <h1>He Brew Coffee</h1>
+        <p>For You</p>
+      </section>
     </header>
     <main>
       <section class="Top3">
@@ -64,11 +68,14 @@
               <p>Price: ${coffee["Price"]}</p>
               <p>Weight: ${coffee["Weight"]}</p>
               <p>Country: ${coffee["Country"]}</p>
+              <div class="LearnMore">
+                <p>Learn More:</p>
+              </div>
               </a>
           </article>
       `
       }
-      function showCoffee(){ //Alle bilder er i forskjellige formater for nå, skal endre på det slik at alle bilder er i samme størrelse, men er ikke første prioritet
+      function showCoffee(){
         Top_3_Picks.innerHTML=""
         Coffee
         .orderByChild("Top Picks")

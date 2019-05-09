@@ -127,14 +127,13 @@
           SortCoffee.innerHTML=""
           Coffee
           .orderByChild("Price")
-          .limitToFirst(1000)
           .on("child_added", generateCoffee);
         }
         function showPriceHighLow(){
           SortCoffee.innerHTML=""
           Coffee
-          .orderByChild("Brand")
-          .equalTo("Kaffebrenneriet")
+          .orderByChild("Price")
+          .limitToLast(30)
           .on("child_added", generateCoffee);
         }
       </script>
