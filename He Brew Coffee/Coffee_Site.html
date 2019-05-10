@@ -68,7 +68,7 @@
                 <a href="Product_Site.html?id=${key}">
                 <img id="image" src=${coffee["ImageURL"]}>
                 <h1 id="Product_Header">${coffee.Name}</h1>
-                <p>Price: ${coffee["Price"]}</p>
+                <p>Price: ${coffee["Price"]},00 NOK</p>
                 <p>Weight: ${coffee["Weight"]}</p>
                 <p>Country: ${coffee["Country"]}</p>
                 </a>
@@ -129,13 +129,13 @@
           .orderByChild("Price")
           .on("child_added", generateCoffee);
         }
-        function showPriceHighLow(){
+        function showPriceHighLow(){ //Her prøvde jeg å få til det omvendte av Low to high. Jeg så på flere eksempler og prøvde meg frem, men fikk det ikke til.
           SortCoffee.innerHTML=""
           Coffee
           .orderByChild("Price")
-          .limitToLast(30)
-          .on("child_added", generateCoffee);
+          .on("child_added", showUpsideDown);
         }
+
       </script>
   </body>
 </html>

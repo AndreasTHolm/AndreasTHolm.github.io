@@ -142,14 +142,14 @@ h9{
   position: absolute;
   top: 49%;
   left: 51%;
-  transform: translate(-63%, -49%);
+  transform: translate(-49%, -51%);
   padding: 3px;
 }
 .AsiaAndOceania{
   position: absolute;
   top: 38%;
-  left: 68%;
-  transform: translate(-38%, -68%);
+  left: 66%;
+  transform: translate(-38%, -66%);
 }
 .SouthAmerica{
   position: absolute;
