@@ -1,0 +1,67 @@
+#sisteoverskrift{
+  margin-top: 8%;
+}
+#Overskrift{
+  color: #435a6b;
+  text-align: center;
+  font-size: 30px;
+  position: relative;
+  margin-top: 10%
+}
+.creativenav_SF ul{
+  margin: 0;
+  padding: 0;
+  text-align:center;
+  margin-top: 10%;
+}
+.creativenav_SF ul > li {
+  list-style: outside none none;
+	display: inline-block;
+}
+.creativenav_SF a {
+	padding: 20px 50px;
+	position: relative;
+	display: inline-block;
+	outline: none;
+	color: #435a6b;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 400;
+	text-shadow: 0 0 1px rgba(255,255,255,0.3);
+}
+.creativenav_SF a:hover,
+.creativenav_SF a:focus {
+	color:#fff;
+	outline: none;
+	background:#b82e20;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.5s;
+	-moz-transition: opacity 0.3s, -moz-transform 0.5s;
+	transition: opacity 0.3s, transform 0.5s;
+	-webkit-transform: translateY(10px);
+	-moz-transform: translateY(10px);
+	transform: translateY(10px);
+}
+.creativenav_SF a::after {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: rgba(0,0,0,0.1);
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.5s;
+	-moz-transition: opacity 0.3s, -moz-transform 0.5s;
+	transition: opacity 0.3s, transform 0.5s;
+	-webkit-transform: translateY(10px);
+	-moz-transform: translateY(10px);
+	transform: translateY(10px);
+}
+.creativenav_SF a:hover::after,
+.creativenav_SF a:focus::after {
+	opacity: 1;
+	-webkit-transform: translateY(0px);
+	-moz-transform: translateY(0px);
+	transform: translateY(0px);
+}
